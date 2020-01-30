@@ -1,0 +1,5 @@
+
+{
+    "MongoURL":"mongodb://localhost:27017/toy-story",
+    "SecretKey":"toy-secret-key"
+}
