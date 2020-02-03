@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const {ApolloServer} = require('apollo-server-express');
@@ -13,6 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors());
+app.use(fileUpload());
 
 connectDB();
 
@@ -23,7 +25,7 @@ const server = new ApolloServer({
 
 });
 
-
+app.use('/upload',require('./routes/upload/upload'));
 
 server.applyMiddleware({app});
 
